@@ -6,4 +6,4 @@ function component(message: string) {
   return element;
 }
 
-document.body.appendChild(component("Hello from Typescript with live reloading?"));
+document.getElementById('app').appendChild(component("Hello from Typescript with live reloading?"));
