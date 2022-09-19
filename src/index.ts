@@ -1,4 +1,4 @@
-const lookAndSee = (num: string): string => {
+const lookAndSay = (num: string): string => {
   let currentChar = num[0];
   let count = 0;
   let newNum = "";
@@ -19,14 +19,14 @@ const lookAndSee = (num: string): string => {
 
 const update = () => {
   const num = <HTMLInputElement>document.getElementById("seed");
-  const result = lookAndSee(num.value);
+  const result = lookAndSay(num.value);
 
   document.getElementById("output").textContent = result;
 };
 
 const app = () => {
   document.getElementById("app").innerHTML = `
-    <h2>Look-and-See Sequence</h2>
+    <h2>Look-and-Say Sequence</h2>
 
     <label for="seed">Start: </label>
     <input type="number" id="seed" value="1">
