@@ -17,10 +17,26 @@ const lookAndSee = (num: string): string => {
   return newNum;
 };
 
-function app() {
-  const element = document.createElement("div");
+const update = () => {
+  const num = <HTMLInputElement>document.getElementById("seed");
+  const result = lookAndSee(num.value);
 
-  return element;
-}
+  document.getElementById("output").textContent = result;
+};
 
-document.getElementById("app").appendChild(app());
+const app = () => {
+  document.getElementById("app").innerHTML = `
+    <h2>Look-and-See Sequence</h2>
+
+    <label for="seed">Start: </label>
+    <input type="number" id="seed" value="1">
+    <label for="steps">Number of steps: </label>
+    <input type="number" id="steps" value="5">
+
+    <section id="output"></section>
+    `;
+
+  document.getElementById("seed").addEventListener("input", update);
+};
+
+app();
