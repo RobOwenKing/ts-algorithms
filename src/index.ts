@@ -62,14 +62,17 @@ const elements: [string, object, string?][] = [
   ["input", { type: "number", id: "terms", value: 5 }],
 ];
 
+const inputs: string[] = ["seed", "terms"];
+
 const app = () => {
   const intro = document.getElementById("intro");
   elements.forEach((e) => {
     intro.insertAdjacentElement("beforeend", buildElement(...e));
   });
+  inputs.forEach((i) => {
+    document.getElementById(i).addEventListener("input", update);
+  });
 
-  document.getElementById("seed").addEventListener("input", update);
-  document.getElementById("terms").addEventListener("input", update);
   update();
 };
 
