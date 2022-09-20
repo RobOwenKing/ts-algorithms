@@ -1,4 +1,4 @@
-const lookAndSay = (num: string): string => {
+const getNextLookAndSayTerm = (num: string): string => {
   let currentChar = num[0];
   let count = 0;
   let newNum = "";
@@ -19,7 +19,7 @@ const lookAndSay = (num: string): string => {
 
 const update = () => {
   const num = <HTMLInputElement>document.getElementById("seed");
-  const result = lookAndSay(num.value);
+  const result = getNextLookAndSayTerm(num.value);
 
   document.getElementById("output").textContent = result;
 };
@@ -30,8 +30,8 @@ const app = () => {
 
     <label for="seed">Start: </label>
     <input type="number" id="seed" value="1">
-    <label for="steps">Number of steps: </label>
-    <input type="number" id="steps" value="5">
+    <label for="terms">Number of terms: </label>
+    <input type="number" id="terms" value="5">
 
     <section id="output"></section>
     `;
