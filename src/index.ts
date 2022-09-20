@@ -44,11 +44,15 @@ const app = () => {
     <label for="terms">Number of terms: </label>
     <input type="number" id="terms" value="5">
 
-    <section id="output"></section>
+    <section>
+      <h3>Result</h3>
+      <div id="output"></div>
+    </section>
     `;
 
   document.getElementById("seed").addEventListener("input", update);
   document.getElementById("terms").addEventListener("input", update);
+  update();
 };
 
 app();
