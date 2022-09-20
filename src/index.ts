@@ -36,18 +36,13 @@ const update = () => {
 };
 
 const app = () => {
-  document.getElementById("app").innerHTML = `
+  document.getElementById("intro").innerHTML = `
     <h2>Look-and-Say Sequence</h2>
 
     <label for="seed">Start: </label>
     <input type="number" id="seed" value="1">
     <label for="terms">Number of terms: </label>
     <input type="number" id="terms" value="5">
-
-    <section>
-      <h3>Result</h3>
-      <div id="output"></div>
-    </section>
     `;
 
   document.getElementById("seed").addEventListener("input", update);
