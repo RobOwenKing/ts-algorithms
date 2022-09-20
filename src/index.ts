@@ -17,11 +17,22 @@ const getNextLookAndSayTerm = (num: string): string => {
   return newNum;
 };
 
-const update = () => {
-  const num = <HTMLInputElement>document.getElementById("seed");
-  const result = getNextLookAndSayTerm(num.value);
+const getLookAndSaySequence = (seed: string, noOfTerms: number) => {
+  const sequence = [seed];
 
-  document.getElementById("output").textContent = result;
+  while (sequence.length < noOfTerms) {
+    sequence.push(getNextLookAndSayTerm(sequence.at(-1)));
+  }
+
+  return sequence;
+};
+
+const update = () => {
+  const seed = <HTMLInputElement>document.getElementById("seed");
+  const terms = <HTMLInputElement>document.getElementById("terms");
+  const result = getLookAndSaySequence(seed.value, parseInt(terms.value));
+
+  document.getElementById("output").textContent = result.join(", ");
 };
 
 const app = () => {
@@ -37,6 +48,7 @@ const app = () => {
     `;
 
   document.getElementById("seed").addEventListener("input", update);
+  document.getElementById("terms").addEventListener("input", update);
 };
 
 app();
