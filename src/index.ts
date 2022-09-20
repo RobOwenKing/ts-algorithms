@@ -57,9 +57,9 @@ const elements: [string, object, string?][] = [
     "If you don't know what the Look-and-Say Sequence is (although I think the name rather gives it away), I don't want to spoil it. Just play around a bit and see what you find.",
   ],
   ["label", { for: "seed" }, "Start: "],
-  ["input", { type: "number", id: "seed", value: 1 }],
+  ["input", { type: "number", id: "seed", value: 1, min: 0 }],
   ["label", { for: "terms" }, "Number of terms: "],
-  ["input", { type: "number", id: "terms", value: 5 }],
+  ["input", { type: "number", id: "terms", value: 5, min: 1 }],
 ];
 
 const inputs: string[] = ["seed", "terms"];
