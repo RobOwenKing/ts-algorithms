@@ -1,3 +1,11 @@
+interface Attributes {
+  for?: string;
+  type?: string;
+  id?: string;
+  value?: number;
+  min?: number;
+}
+
 const buildElement = (type: string, options: object, text?: string) => {
   const newElement = document.createElement(type);
 
@@ -49,7 +57,7 @@ const update = () => {
   document.getElementById("output").textContent = result.join(", ");
 };
 
-const elements: [string, object, string?][] = [
+const elements: [string, Attributes, string?][] = [
   ["h2", {}, "Look-and-Say Sequence"],
   [
     "p",
