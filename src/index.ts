@@ -6,6 +6,12 @@ interface Attributes {
   min?: number;
 }
 
+interface Page {
+  markup: [string, Attributes, string?][];
+  inputs: string[];
+  update: function;
+}
+
 const buildElement = (type: string, options: Attributes, text?: string) => {
   const newElement = document.createElement(type);
 
