@@ -11,7 +11,7 @@ type ElementParams = [string, Attributes, string?][];
 interface Page {
   markup: ElementParams;
   inputs: string[];
-  update: function;
+  update: () => void;
 }
 
 const buildElement = (type: string, options: Attributes, text?: string) => {
