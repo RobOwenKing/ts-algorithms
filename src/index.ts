@@ -6,8 +6,10 @@ interface Attributes {
   min?: number;
 }
 
+type ElementParams = [string, Attributes, string?][];
+
 interface Page {
-  markup: [string, Attributes, string?][];
+  markup: ElementParams;
   inputs: string[];
   update: function;
 }
