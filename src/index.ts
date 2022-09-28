@@ -6,7 +6,7 @@ interface Attributes {
   min?: number;
 }
 
-const buildElement = (type: string, options: object, text?: string) => {
+const buildElement = (type: string, options: Attributes, text?: string) => {
   const newElement = document.createElement(type);
 
   for (const [key, value] of Object.entries(options)) {
