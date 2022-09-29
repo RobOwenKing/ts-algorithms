@@ -14,6 +14,33 @@ interface Page {
   update: () => void;
 }
 
+type Data = { [index: string]: Page };
+
+const data: Data = {
+  lookAndSay: {
+    markup: [
+      ["h2", {}, "Look-and-Say Sequence"],
+      [
+        "p",
+        {},
+        "If you don't know what the Look-and-Say Sequence is (although I think the name rather gives it away), I don't want to spoil it. Just play around a bit and see what you find.",
+      ],
+      ["label", { for: "seed" }, "Start: "],
+      ["input", { type: "number", id: "seed", value: 1, min: 0 }],
+      ["label", { for: "terms" }, "Number of terms: "],
+      ["input", { type: "number", id: "terms", value: 5, min: 1 }],
+    ],
+    inputs: ["seed", "terms"],
+    update: () => {
+      const seed = <HTMLInputElement>document.getElementById("seed");
+      const terms = <HTMLInputElement>document.getElementById("terms");
+      const result = getLookAndSaySequence(seed.value, parseInt(terms.value));
+
+      document.getElementById("output").textContent = result.join(", ");
+    },
+  },
+};
+
 const buildElement = (type: string, options: Attributes, text?: string) => {
   const newElement = document.createElement(type);
 
@@ -57,39 +84,17 @@ const getLookAndSaySequence = (seed: string, noOfTerms: number) => {
   return sequence;
 };
 
-const update = () => {
-  const seed = <HTMLInputElement>document.getElementById("seed");
-  const terms = <HTMLInputElement>document.getElementById("terms");
-  const result = getLookAndSaySequence(seed.value, parseInt(terms.value));
-
-  document.getElementById("output").textContent = result.join(", ");
-};
-
-const elements: [string, Attributes, string?][] = [
-  ["h2", {}, "Look-and-Say Sequence"],
-  [
-    "p",
-    {},
-    "If you don't know what the Look-and-Say Sequence is (although I think the name rather gives it away), I don't want to spoil it. Just play around a bit and see what you find.",
-  ],
-  ["label", { for: "seed" }, "Start: "],
-  ["input", { type: "number", id: "seed", value: 1, min: 0 }],
-  ["label", { for: "terms" }, "Number of terms: "],
-  ["input", { type: "number", id: "terms", value: 5, min: 1 }],
-];
-
-const inputs: string[] = ["seed", "terms"];
-
 const app = () => {
   const intro = document.getElementById("intro");
-  elements.forEach((e) => {
+  const current = data.lookAndSay;
+  current.markup.forEach((e) => {
     intro.insertAdjacentElement("beforeend", buildElement(...e));
   });
-  inputs.forEach((i) => {
-    document.getElementById(i).addEventListener("input", update);
+  current.inputs.forEach((i) => {
+    document.getElementById(i).addEventListener("input", current.update);
   });
 
-  update();
+  current.update();
 };
 
 app();
