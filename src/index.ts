@@ -1,4 +1,5 @@
-import { Attributes, data } from "./data";
+import { Attributes } from "./types";
+import { data } from "./data";
 
 const buildElement = (type: string, options: Attributes, text?: string) => {
   const newElement = document.createElement(type);
