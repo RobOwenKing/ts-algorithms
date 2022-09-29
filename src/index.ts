@@ -15,7 +15,7 @@ const buildElement = (type: string, options: Attributes, text?: string) => {
   return newElement;
 };
 
-const app = () => {
+const buildPage = () => {
   const intro = document.getElementById("intro");
   const current = data.lookAndSay;
   current.markup.forEach((e) => {
@@ -26,6 +26,26 @@ const app = () => {
   });
 
   current.update();
+};
+
+const buildAlgorithmsSelect = (element: HTMLSelectElement) => {
+  for (const key in data) {
+    const newOption = document.createElement("option");
+
+    newOption.setAttribute("id", key);
+    newOption.innerText = data[key].name;
+
+    element.insertAdjacentElement("beforeend", newOption);
+  }
+};
+
+const app = () => {
+  const algorithmsSelect = <HTMLSelectElement>(
+    document.getElementById("algorithms")
+  );
+  buildAlgorithmsSelect(algorithmsSelect);
+
+  buildPage();
 };
 
 app();
