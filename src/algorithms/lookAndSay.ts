@@ -30,6 +30,7 @@ const getLookAndSaySequence = (seed: string, noOfTerms: number) => {
 };
 
 export const lookAndSayPage: Page = {
+  name: "Look-and-Say",
   markup: [
     ["h2", {}, "Look-and-Say Sequence"],
     [

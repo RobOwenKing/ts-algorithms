@@ -9,6 +9,7 @@ export interface Attributes {
 type ElementParams = [string, Attributes, string?][];
 
 export interface Page {
+  name: string;
   markup: ElementParams;
   inputs: string[];
   update: () => void;
