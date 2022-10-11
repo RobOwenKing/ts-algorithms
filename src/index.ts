@@ -53,8 +53,6 @@ const app = () => {
   );
   buildAlgorithmsSelect(algorithmsSelect);
   activateAlgorithmsSelect(algorithmsSelect);
-
-  buildPage("lookAndSay");
 };
 
 app();

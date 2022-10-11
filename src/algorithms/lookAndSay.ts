@@ -42,6 +42,8 @@ export const lookAndSayPage: Page = {
     ["input", { type: "number", id: "seed", value: 1, min: 0 }],
     ["label", { for: "terms" }, "Number of terms: "],
     ["input", { type: "number", id: "terms", value: 5, min: 1 }],
+    ["h3", {}, "Output"],
+    ["div", { id: "output" }],
   ],
   inputs: ["seed", "terms"],
   update: () => {
