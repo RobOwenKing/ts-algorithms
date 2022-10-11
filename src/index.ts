@@ -16,12 +16,12 @@ const buildElement = (type: string, options: Attributes, text?: string) => {
 };
 
 const buildPage = (page: string) => {
-  const intro = document.getElementById("intro");
+  const app = document.getElementById("app");
   const current = data[page];
 
-  intro.innerHTML = "";
+  app.innerHTML = "";
   current.markup.forEach((e) => {
-    intro.insertAdjacentElement("beforeend", buildElement(...e));
+    app.insertAdjacentElement("beforeend", buildElement(...e));
   });
   current.inputs.forEach((i) => {
     document.getElementById(i).addEventListener("input", current.update);
