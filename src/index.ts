@@ -18,6 +18,8 @@ const buildElement = (type: string, options: Attributes, text?: string) => {
 const buildPage = (page: string) => {
   const intro = document.getElementById("intro");
   const current = data[page];
+
+  intro.innerHTML = "";
   current.markup.forEach((e) => {
     intro.insertAdjacentElement("beforeend", buildElement(...e));
   });
