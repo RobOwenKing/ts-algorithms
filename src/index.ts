@@ -33,6 +33,7 @@ const buildAlgorithmsSelect = (element: HTMLSelectElement) => {
     const newOption = document.createElement("option");
 
     newOption.setAttribute("id", key);
+    newOption.setAttribute("value", key);
     newOption.innerText = data[key].name;
 
     element.insertAdjacentElement("beforeend", newOption);
