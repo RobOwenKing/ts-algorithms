@@ -39,11 +39,18 @@ const buildAlgorithmsSelect = (element: HTMLSelectElement) => {
   }
 };
 
+const activateAlgorithmsSelect = (element: HTMLSelectElement) => {
+  element.addEventListener("change", () => {
+    buildPage(element.value);
+  });
+};
+
 const app = () => {
   const algorithmsSelect = <HTMLSelectElement>(
     document.getElementById("algorithms")
   );
   buildAlgorithmsSelect(algorithmsSelect);
+  activateAlgorithmsSelect(algorithmsSelect);
 
   buildPage("lookAndSay");
 };
