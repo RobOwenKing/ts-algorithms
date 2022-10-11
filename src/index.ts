@@ -32,7 +32,6 @@ const buildAlgorithmsSelect = (element: HTMLSelectElement) => {
   for (const key in data) {
     const newOption = document.createElement("option");
 
-    newOption.setAttribute("id", key);
     newOption.setAttribute("value", key);
     newOption.innerText = data[key].name;
 
