@@ -15,9 +15,9 @@ const buildElement = (type: string, options: Attributes, text?: string) => {
   return newElement;
 };
 
-const buildPage = () => {
+const buildPage = (page: string) => {
   const intro = document.getElementById("intro");
-  const current = data.lookAndSay;
+  const current = data[page];
   current.markup.forEach((e) => {
     intro.insertAdjacentElement("beforeend", buildElement(...e));
   });
@@ -45,7 +45,7 @@ const app = () => {
   );
   buildAlgorithmsSelect(algorithmsSelect);
 
-  buildPage();
+  buildPage("lookAndSay");
 };
 
 app();
