@@ -16,4 +16,8 @@ export class Stack<Type> {
   peek(): Type | undefined {
     return this.stack.at(-1);
   }
+
+  length(): number {
+    return this.stack.length;
+  }
 }

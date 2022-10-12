@@ -2,8 +2,36 @@ import { Page } from "../types";
 
 import { Stack } from "../data_structures/stack";
 
+const matches: { [key: string]: string } = {
+  ")": "(",
+  "}": "{",
+  "]": "[",
+  ">": "<",
+};
+
 const areParenthesesBalanced = (str: string): boolean => {
-  return str.length < 5;
+  const stack = new Stack<string>();
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    if (["(", "{", "[", "<"].includes(char)) {
+      stack.push(char);
+      continue;
+    }
+
+    if (![")", "}", "]", ">"].includes(char)) {
+      continue;
+    }
+
+    if (stack.pop() === matches[char]) {
+      continue;
+    }
+
+    return false;
+  }
+
+  return stack.length() === 0;
 };
 
 export const balancedParenthesesPage: Page = {
