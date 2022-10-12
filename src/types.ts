@@ -4,6 +4,8 @@ export interface Attributes {
   id?: string;
   value?: number;
   min?: number;
+  rows?: number;
+  cols?: number;
 }
 
 type ElementParams = [string, Attributes, string?][];

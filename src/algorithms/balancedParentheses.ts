@@ -38,8 +38,8 @@ export const balancedParenthesesPage: Page = {
   name: "Balanced Parentheses",
   markup: [
     ["h2", {}, "Balanced Parentheses"],
-    ["p", {}, "Checks valid bracketing of the pairs: (), [], {} and <>."],
-    ["textarea", { id: "input" }],
+    ["p", {}, "Checks valid bracketing of the pairs (), [], {} and <>."],
+    ["textarea", { id: "input", rows: 8, cols: 32 }],
     ["h3", {}, "Are the Parentheses Balanced?"],
     ["div", { id: "output" }],
   ],
