@@ -1,6 +1,8 @@
 import { Attributes } from "./types";
 import { data } from "./data";
 
+import { camelToKebab } from "./algorithms/convertCase";
+
 const buildElement = (type: string, options: Attributes, text?: string) => {
   const newElement = document.createElement(type);
 
@@ -28,6 +30,8 @@ const buildPage = (page: string) => {
   });
 
   current.update();
+
+  location.hash = camelToKebab(page);
 };
 
 const buildAlgorithmsSelect = (element: HTMLSelectElement) => {
