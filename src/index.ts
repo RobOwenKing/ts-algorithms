@@ -30,8 +30,6 @@ const buildPage = (page: string) => {
   });
 
   current.update();
-
-  location.hash = camelToKebab(page);
 };
 
 const buildAlgorithmsSelect = (element: HTMLSelectElement) => {
@@ -47,7 +45,8 @@ const buildAlgorithmsSelect = (element: HTMLSelectElement) => {
 
 const activateAlgorithmsSelect = (element: HTMLSelectElement) => {
   element.addEventListener("change", () => {
-    buildPage(element.value);
+    // buildPage(element.value);
+    location.hash = camelToKebab(element.value);
   });
 };
 
