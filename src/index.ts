@@ -68,6 +68,8 @@ const app = () => {
   buildAlgorithmsSelect(algorithmsSelect);
   activateAlgorithmsSelect(algorithmsSelect);
   callBuildPage();
+
+  window.addEventListener("hashchange", callBuildPage);
 };
 
 app();
