@@ -1,7 +1,7 @@
 import { Attributes } from "./types";
 import { data } from "./data";
 
-import { camelToKebab } from "./algorithms/convertCase";
+import { camelToKebab, kebabToCamel } from "./algorithms/convertCase";
 
 const buildElement = (type: string, options: Attributes, text?: string) => {
   const newElement = document.createElement(type);
@@ -17,8 +17,7 @@ const buildElement = (type: string, options: Attributes, text?: string) => {
   return newElement;
 };
 
-const buildPage = (page: string) => {
-  const app = document.getElementById("app");
+const buildPage = (page: string, app: HTMLElement) => {
   const current = data[page];
 
   app.innerHTML = "";
@@ -30,6 +29,18 @@ const buildPage = (page: string) => {
   });
 
   current.update();
+};
+
+const callBuildPage = () => {
+  const app = document.getElementById("app");
+
+  if (location.hash === "") {
+    app.innerHTML = "";
+    return;
+  }
+
+  const page = kebabToCamel(location.hash).slice(1); // Has # at start
+  buildPage(page, app);
 };
 
 const buildAlgorithmsSelect = (element: HTMLSelectElement) => {
@@ -56,6 +67,7 @@ const app = () => {
   );
   buildAlgorithmsSelect(algorithmsSelect);
   activateAlgorithmsSelect(algorithmsSelect);
+  callBuildPage();
 };
 
 app();
