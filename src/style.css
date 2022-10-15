@@ -2,3 +2,7 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.select[data-size="large"] {
+  font-size: 1.5rem;
+}

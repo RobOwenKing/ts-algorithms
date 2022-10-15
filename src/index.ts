@@ -42,11 +42,13 @@ const callBuildPage = (): void => {
 
   if (location.hash === "") {
     app.innerHTML = "";
+    document.getElementById("algorithms").dataset.size = "large";
     return;
   }
 
   const page = kebabToCamel(location.hash).slice(1); // Has # at start
   buildPage(page, app);
+  document.getElementById("algorithms").dataset.size = "small";
 };
 
 const buildAlgorithmsSelect = (element: HTMLSelectElement): void => {
