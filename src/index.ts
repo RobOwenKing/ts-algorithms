@@ -1,3 +1,5 @@
+import "./style.css";
+
 import { Attributes } from "./types";
 import { data } from "./data";
 
