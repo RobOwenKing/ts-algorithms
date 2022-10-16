@@ -2,11 +2,10 @@ export interface Attributes {
   for?: string;
   type?: string;
   id?: string;
-  value?: number;
+  value?: number | string;
   min?: number;
   rows?: number;
   cols?: number;
-  placeholder?: string;
 }
 
 type ElementParams = [string, Attributes, string?][];

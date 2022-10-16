@@ -18,12 +18,19 @@ export const arrayToCombinationsPage: Page = {
     ["label", { for: "n" }, "Elements per combination: "],
     ["input", { id: "n", type: "number", value: 1, min: 1 }],
     ["label", { for: "separator" }, "Start: "],
-    ["input", { id: "separator", placeholder: ";" }],
+    ["input", { id: "separator", value: ";" }],
     ["h3", {}, "All combinations of n elements:"],
     ["div", { id: "output" }],
   ],
-  inputs: [],
+  inputs: ["array", "n", "separator"],
   update: () => {
-    arrayToCombinations([]);
+    const arrInput = <HTMLInputElement>document.getElementById("array");
+    const sepInput = <HTMLInputElement>document.getElementById("separator");
+    const arr = arrInput.value.split(sepInput.value);
+
+    const combinations = arrayToCombinations(arr);
+
+    document.getElementById("output").textContent =
+      JSON.stringify(combinations);
   },
 };
