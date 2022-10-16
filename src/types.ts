@@ -6,6 +6,7 @@ export interface Attributes {
   min?: number;
   rows?: number;
   cols?: number;
+  placeholder?: string;
 }
 
 type ElementParams = [string, Attributes, string?][];
