@@ -26,14 +26,15 @@ export const arrayToCombinationsPage: Page = {
     ["h3", {}, "All combinations of n elements:"],
     ["div", { id: "output" }],
   ],
-  inputs: ["array", "n", "separator"],
+  inputs: ["array", "kay", "separator"],
   update: () => {
     const arrInput = <HTMLInputElement>document.getElementById("array");
     const kayInput = <HTMLInputElement>document.getElementById("kay");
     const sepInput = <HTMLInputElement>document.getElementById("separator");
 
     const arr = arrInput.value.split(sepInput.value);
-    const kay = parseInt(kayInput.value);
+    const kay = parseInt(kayInput.value) | 1;
+    console.log(kay);
 
     const combinations = arrayToCombinations(arr, kay);
 
