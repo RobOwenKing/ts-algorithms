@@ -1,13 +1,14 @@
 import { Page } from "../types";
 
 const arrayToCombinations = (arr: string[], kay: number): string[][] => {
-  console.log(arr);
   if (kay === 1) {
     return arr.map((e) => [e]);
   } else {
     const combinations = [];
-    for (let i = 0; i < arr.length - kay; i += 1) {
-      combinations.push(...arrayToCombinations(arr.slice(i + 1), kay - 1));
+    for (let i = 0; i < arr.length - kay + 1; i += 1) {
+      const tailCombs = arrayToCombinations(arr.slice(i + 1), kay - 1);
+      const mappedCombs = tailCombs.map((e) => [arr[i], ...e]);
+      combinations.push(...mappedCombs);
     }
     return combinations;
   }
@@ -39,7 +40,6 @@ export const arrayToCombinationsPage: Page = {
 
     const arr = arrInput.value.split(sepInput.value);
     const kay = parseInt(kayInput.value) || 1;
-    console.log(kay);
 
     const combinations = arrayToCombinations(arr, kay);
 
