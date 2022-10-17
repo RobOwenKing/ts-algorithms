@@ -1,10 +1,15 @@
 import { Page } from "../types";
 
 const arrayToCombinations = (arr: string[], kay: number): string[][] => {
+  console.log(arr);
   if (kay === 1) {
     return arr.map((e) => [e]);
   } else {
-    return arrayToCombinations(arr, kay - 1);
+    const combinations = [];
+    for (let i = 0; i < arr.length - kay; i += 1) {
+      combinations.push(...arrayToCombinations(arr.slice(i + 1), kay - 1));
+    }
+    return combinations;
   }
 };
 
@@ -33,7 +38,7 @@ export const arrayToCombinationsPage: Page = {
     const sepInput = <HTMLInputElement>document.getElementById("separator");
 
     const arr = arrInput.value.split(sepInput.value);
-    const kay = parseInt(kayInput.value) | 1;
+    const kay = parseInt(kayInput.value) || 1;
     console.log(kay);
 
     const combinations = arrayToCombinations(arr, kay);
