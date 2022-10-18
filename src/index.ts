@@ -3,7 +3,7 @@ import "./style.css";
 import { Attributes } from "./types";
 import { data } from "./data";
 
-import { camelToKebab, kebabToCamel } from "./algorithms/convertCase";
+import { camelToKebab, kebabToCamel } from "./helpers/convertCase";
 
 const buildElement = (
   type: string,
