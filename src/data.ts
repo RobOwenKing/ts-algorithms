@@ -8,12 +8,4 @@ export const data: Data = {
   arrayToCombinations: arrayToCombinationsPage,
   balancedParentheses: balancedParenthesesPage,
   lookAndSay: lookAndSayPage,
-  test: {
-    name: "Test",
-    markup: [["p", {}, "This is a test"]],
-    inputs: [],
-    update: () => {
-      console.log("check");
-    },
-  },
 };
