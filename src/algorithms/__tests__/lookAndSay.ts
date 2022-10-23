@@ -1,6 +1,6 @@
 import { describe, expect, test } from "@jest/globals";
 
-import { getNextLookAndSayTerm } from "../lookAndSay";
+import { getNextLookAndSayTerm, getLookAndSaySequence } from "../lookAndSay";
 
 describe("getNextLookAndSayTerm()", () => {
   test("works with single digits", () => {
@@ -16,6 +16,15 @@ describe("getNextLookAndSayTerm()", () => {
   test("works with complex strings of digits", () => {
     expect(getNextLookAndSayTerm("00")).toBe("20");
     expect(getNextLookAndSayTerm("22")).toBe("22");
+    expect(getNextLookAndSayTerm("2222")).toBe("42");
     expect(getNextLookAndSayTerm("0001000")).toBe("301130");
+  });
+});
+
+describe("getLookAndSaySequence()", () => {
+  test("returns correct number of terms", () => {
+    expect(getLookAndSaySequence("0", 1).length).toBe(1);
+    expect(getLookAndSaySequence("0", 2).length).toBe(2);
+    expect(getLookAndSaySequence("0", 5).length).toBe(5);
   });
 });

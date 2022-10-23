@@ -19,7 +19,10 @@ export const getNextLookAndSayTerm = (num: string): string => {
   return newNum;
 };
 
-const getLookAndSaySequence = (seed: string, noOfTerms: number) => {
+export const getLookAndSaySequence = (
+  seed: string,
+  noOfTerms: number
+): string[] => {
   const sequence = [seed];
 
   while (sequence.length < noOfTerms) {
