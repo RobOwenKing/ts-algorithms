@@ -27,4 +27,23 @@ describe("getLookAndSaySequence()", () => {
     expect(getLookAndSaySequence("0", 2).length).toBe(2);
     expect(getLookAndSaySequence("0", 5).length).toBe(5);
   });
+  test("returns correct terms starting with '0'", () => {
+    const returnValue = getLookAndSaySequence("0", 5);
+    // 0, 10, 1110, 3110, 132110
+    expect(returnValue[0]).toBe("0");
+    expect(returnValue[1]).toBe("10");
+    expect(returnValue[4]).toBe("132110");
+  });
+  test("returns correct terms starting with '45'", () => {
+    const returnValue = getLookAndSaySequence("45", 5);
+    // 45, 1415, 11141115, 31143115, 132114132115
+    expect(returnValue[0]).toBe("45");
+    expect(returnValue[1]).toBe("1415");
+    expect(returnValue[4]).toBe("132114132115");
+  });
+  test("returns correct terms starting with '22'", () => {
+    const returnValue = getLookAndSaySequence("22", 5);
+    expect(returnValue[1]).toBe("22");
+    expect(returnValue[4]).toBe("22");
+  });
 });
