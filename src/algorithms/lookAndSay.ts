@@ -1,6 +1,6 @@
 import { Page } from "../types";
 
-const getNextLookAndSayTerm = (num: string): string => {
+export const getNextLookAndSayTerm = (num: string): string => {
   let currentChar = num[0];
   let count = 0;
   let newNum = "";
@@ -19,7 +19,10 @@ const getNextLookAndSayTerm = (num: string): string => {
   return newNum;
 };
 
-const getLookAndSaySequence = (seed: string, noOfTerms: number) => {
+export const getLookAndSaySequence = (
+  seed: string,
+  noOfTerms: number
+): string[] => {
   const sequence = [seed];
 
   while (sequence.length < noOfTerms) {
