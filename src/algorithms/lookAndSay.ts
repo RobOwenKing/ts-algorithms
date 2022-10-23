@@ -1,6 +1,6 @@
 import { Page } from "../types";
 
-const getNextLookAndSayTerm = (num: string): string => {
+export const getNextLookAndSayTerm = (num: string): string => {
   let currentChar = num[0];
   let count = 0;
   let newNum = "";
