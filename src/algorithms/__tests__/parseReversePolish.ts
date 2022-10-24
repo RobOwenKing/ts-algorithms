@@ -44,6 +44,7 @@ describe("parseReversePolish()", () => {
     expect(parseReversePolish("7 8 3 2 ^ * 4 + +")).toBe("83");
   });
   test("can identify invalid expressions", () => {
+    expect(parseReversePolish("3 a +")).toBe("Invalid input");
     expect(parseReversePolish("3 2 1 +")).toBe("Invalid input");
     expect(parseReversePolish("3 2 1 + + +")).toBe("Invalid input");
   });
