@@ -1,5 +1,9 @@
 import { Page } from "../types";
 
+export const parseReversePolish = (equation: string): string | number => {
+  return "";
+};
+
 export const templatePage: Page = {
   name: "Template",
   markup: [
