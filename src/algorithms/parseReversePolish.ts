@@ -21,6 +21,7 @@ const calculate = (operator: string, a: number, b: number): number => {
 
 export const parseReversePolish = (equation: string): string | number => {
   const stack = new Stack<number>();
+  let invalid = false;
 
   equation.split(" ").forEach((term) => {
     if (/\-?[0-9]+/.test(term)) {
@@ -28,11 +29,11 @@ export const parseReversePolish = (equation: string): string | number => {
     } else if (["+", "-", "/", "*", "^"].includes(term)) {
       stack.push(calculate(term, stack.pop(), stack.pop()));
     } else {
-      return "Invalid input";
+      invalid = true;
     }
   });
 
-  return stack.length() == 1 ? stack.pop() : "Invalid input";
+  return stack.length() == 1 && !invalid ? stack.pop() : "Invalid input";
 };
 
 export const templatePage: Page = {
