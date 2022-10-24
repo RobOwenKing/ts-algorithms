@@ -5,15 +5,15 @@ import { Stack } from "../data_structures/stack";
 const calculate = (operator: string, a: number, b: number): number => {
   switch (operator) {
     case "+":
-      return a + b;
+      return b + a;
     case "-":
-      return a - b;
+      return b - a;
     case "*":
-      return a * b;
+      return b * a;
     case "/":
-      return a / b;
+      return b / a;
     case "^":
-      return a ** b;
+      return b ** a;
     default:
       return 0;
   }
