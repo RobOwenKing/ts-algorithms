@@ -23,7 +23,7 @@ export const parseReversePolish = (equation: string): string | number => {
   const stack = new Stack<number>();
 
   equation.split(" ").forEach((term) => {
-    if (term.match(/\-?[0-9]+/)) {
+    if (/\-?[0-9]+/.test(term)) {
       stack.push(parseInt(term));
     } else if (["+", "-", "/", "*", "^"].includes(term)) {
       stack.push(calculate(term, stack.pop(), stack.pop()));
