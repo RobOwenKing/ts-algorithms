@@ -39,7 +39,7 @@ describe("parseReversePolish()", () => {
   test("can cope with multiple operations", () => {
     expect(parseReversePolish("1 2 3 + *")).toBe(5);
     expect(parseReversePolish("1 2 + 3 *")).toBe(9);
-    expect(parseReversePolish("1 2 / 3 ^ 4 -")).toBe(4);
+    expect(parseReversePolish("2 1 / 3 ^ 4 -")).toBe(4);
     expect(parseReversePolish("1 2 + 3 4 + *")).toBe(21);
     expect(parseReversePolish("7 8 3 2 ^ * 4 + +")).toBe(83);
   });
