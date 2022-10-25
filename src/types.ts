@@ -14,7 +14,7 @@ export interface Attributes {
   for?: string;
 }
 
-type ElementParams = [string, Attributes, string?][];
+type ElementParams = [string, Attributes, string?, ElementParams[]?][];
 
 export interface Page {
   name: string;
