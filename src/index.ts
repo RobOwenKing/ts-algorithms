@@ -1,6 +1,6 @@
 import "./style.css";
 
-import { Attributes } from "./types";
+import { Attributes, ElementParams } from "./types";
 import { data } from "./data";
 
 import { camelToKebab, kebabToCamel } from "./helpers/convertCase";
@@ -8,7 +8,8 @@ import { camelToKebab, kebabToCamel } from "./helpers/convertCase";
 const buildElement = (
   type: string,
   options: Attributes,
-  text?: string
+  text?: string,
+  children?: ElementParams[]
 ): HTMLElement => {
   const newElement = document.createElement(type);
 
