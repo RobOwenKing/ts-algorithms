@@ -45,9 +45,9 @@ export const parseReversePolishPage: Page = {
   markup: [
     ["h2", {}, "Parse Reverse Polish Notation"],
     ["p", {}, "Algorithm description goes here"],
-    ["h3", {}, "Output:"],
     ["label", { for: "input" }, "Equation: "],
     ["input", { id: "input" }],
+    ["h3", {}, "Output:"],
     ["div", { id: "output" }],
   ],
   inputs: ["input"],
