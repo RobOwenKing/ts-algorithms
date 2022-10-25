@@ -47,12 +47,14 @@ export const parseReversePolishPage: Page = {
     [
       "p",
       {},
-      "Created by logician Jan Łukasiewicz in 1924, Polish notation is a less ambiguous way to write mathematical expressions than traditional infix notations, removing the need for parentheses.",
-    ],
-    [
-      "a",
-      { href: "https://en.wikipedia.org/wiki/Reverse_Polish_notation" },
-      "Read more on Wikipedia",
+      "Created by logician Jan Łukasiewicz in 1924, Polish notation is a less ambiguous way to write mathematical expressions than traditional infix notations, removing the need for parentheses. ",
+      [
+        [
+          "a",
+          { href: "https://en.wikipedia.org/wiki/Reverse_Polish_notation" },
+          "Read more on Wikipedia",
+        ],
+      ],
     ],
     ["label", { for: "input" }, "Equation: "],
     ["input", { id: "input" }],
