@@ -26,8 +26,7 @@ interface Listener {
 export interface Page {
   name: string;
   markup: ElementParams;
-  inputs: string[];
-  update: () => void;
+  listeners: Listener[];
 }
 
 export type Data = { [index: string]: Page };
