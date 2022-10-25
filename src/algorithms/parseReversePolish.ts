@@ -40,14 +40,21 @@ export const parseReversePolish = (equation: string): string | number => {
   return stack.length() == 1 && !invalid ? stack.pop() : "Invalid input";
 };
 
-export const templatePage: Page = {
-  name: "Template",
+export const parseReversePolishPage: Page = {
+  name: "Reverse Polish Notation",
   markup: [
-    ["h2", {}, "Template"],
+    ["h2", {}, "Parse Reverse Polish Notation"],
     ["p", {}, "Algorithm description goes here"],
     ["h3", {}, "Output:"],
+    ["label", { for: "input" }, "Equation: "],
+    ["input", { id: "input" }],
     ["div", { id: "output" }],
   ],
-  inputs: [],
-  update: () => {},
+  inputs: ["input"],
+  update: () => {
+    const input = <HTMLInputElement>document.getElementById("input");
+    const output = document.getElementById("output");
+
+    output.textContent = parseReversePolish(input.value).toString();
+  },
 };
