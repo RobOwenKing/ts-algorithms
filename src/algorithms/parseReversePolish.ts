@@ -55,6 +55,12 @@ export const parseReversePolishPage: Page = {
     const input = <HTMLInputElement>document.getElementById("input");
     const output = document.getElementById("output");
 
-    output.textContent = `= ${parseReversePolish(input.value)}`;
+    const answer = parseReversePolish(input.value);
+    if (answer === "Invalid input") {
+      output.dataset.valid = "false";
+    } else {
+      output.textContent = `= ${answer}`;
+      output.dataset.valid = "true";
+    }
   },
 };
