@@ -14,6 +14,7 @@ export interface Attributes {
   for?: string;
 }
 
+/* type, options, innerText?, children? */
 export type ElementParams = [string, Attributes, string?, ElementParams?][];
 
 export interface Page {
