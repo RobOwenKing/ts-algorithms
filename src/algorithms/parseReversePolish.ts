@@ -55,6 +55,6 @@ export const parseReversePolishPage: Page = {
     const input = <HTMLInputElement>document.getElementById("input");
     const output = document.getElementById("output");
 
-    output.textContent = parseReversePolish(input.value).toString();
+    output.textContent = `= ${parseReversePolish(input.value)}`;
   },
 };
