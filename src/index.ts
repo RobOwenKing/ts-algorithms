@@ -9,7 +9,7 @@ const buildElement = (
   type: string,
   options: Attributes,
   text?: string,
-  children?: ElementParams[]
+  children?: ElementParams
 ): HTMLElement => {
   const newElement = document.createElement(type);
 
@@ -19,6 +19,11 @@ const buildElement = (
 
   if (text) {
     newElement.innerText = text;
+  }
+  if (children) {
+    children.forEach((child) =>
+      newElement.insertAdjacentElement("beforeend", buildElement(...child))
+    );
   }
 
   return newElement;
