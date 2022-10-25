@@ -44,7 +44,16 @@ export const parseReversePolishPage: Page = {
   name: "Reverse Polish Notation",
   markup: [
     ["h2", {}, "Parse Reverse Polish Notation"],
-    ["p", {}, "Algorithm description goes here"],
+    [
+      "p",
+      {},
+      "Created by logician Jan Łukasiewicz in 1924, Polish notation is a less ambiguous way to write mathematical expressions than traditional infix notations, removing the need for parentheses.",
+    ],
+    [
+      "a",
+      { href: "https://en.wikipedia.org/wiki/Reverse_Polish_notation" },
+      "Read more on Wikipedia",
+    ],
     ["label", { for: "input" }, "Equation: "],
     ["input", { id: "input" }],
     ["h3", {}, "Output:"],

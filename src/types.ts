@@ -2,14 +2,16 @@ export interface Attributes {
   // Basics
   id?: string;
   class?: string;
-  // <label>
-  for?: string;
+  // <a>
+  href?: string;
   // <input>
   type?: string;
   value?: number | string;
   min?: number;
   rows?: number;
   cols?: number;
+  // <label>
+  for?: string;
 }
 
 type ElementParams = [string, Attributes, string?][];
