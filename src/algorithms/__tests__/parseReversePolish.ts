@@ -48,4 +48,10 @@ describe("parseReversePolish()", () => {
     expect(parseReversePolish("3 2 1 +")).toBe("Invalid input");
     expect(parseReversePolish("3 2 1 + + +")).toBe("Invalid input");
   });
+  test("can cope with decimals", () => {
+    expect(parseReversePolish("4 0.5 +")).toBe(4.5);
+    expect(parseReversePolish("4 0.5 -")).toBe(3.5);
+    expect(parseReversePolish("4 0.5 /")).toBe(8);
+    expect(parseReversePolish("4 0.5 ^")).toBe(2);
+  });
 });
