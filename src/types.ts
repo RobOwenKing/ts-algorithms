@@ -17,6 +17,9 @@ export interface Attributes {
 /* type, options, innerText?, children? */
 export type ElementParams = [string, Attributes, string?, ElementParams?][];
 
+/* type, targets, update */
+type Listener = [string, string[], () => void];
+
 export interface Page {
   name: string;
   markup: ElementParams;
