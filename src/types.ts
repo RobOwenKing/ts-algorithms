@@ -1,7 +1,11 @@
 export interface Attributes {
-  for?: string;
-  type?: string;
+  // Basics
   id?: string;
+  class?: string;
+  // <label>
+  for?: string;
+  // <input>
+  type?: string;
   value?: number | string;
   min?: number;
   rows?: number;

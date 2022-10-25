@@ -48,7 +48,7 @@ export const parseReversePolishPage: Page = {
     ["label", { for: "input" }, "Equation: "],
     ["input", { id: "input" }],
     ["h3", {}, "Output:"],
-    ["div", { id: "output" }],
+    ["div", { id: "output", class: "output" }],
   ],
   inputs: ["input"],
   update: () => {
