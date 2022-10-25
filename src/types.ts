@@ -17,8 +17,11 @@ export interface Attributes {
 /* type, options, innerText?, children? */
 export type ElementParams = [string, Attributes, string?, ElementParams?][];
 
-/* type, targets, update */
-type Listener = [string, string[], () => void];
+interface Listener {
+  type: string;
+  inputs: string[];
+  callback: () => void;
+}
 
 export interface Page {
   name: string;
