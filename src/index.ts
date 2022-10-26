@@ -36,11 +36,13 @@ const buildPage = (page: string, app: HTMLElement): void => {
   current.markup.forEach((e) => {
     app.insertAdjacentElement("beforeend", buildElement(...e));
   });
-  current.inputs.forEach((i) => {
-    document.getElementById(i).addEventListener("input", current.update);
+  current.listeners.forEach((lstnr) => {
+    lstnr.ids.forEach((id) => {
+      document.getElementById(id).addEventListener(lstnr.type, lstnr.callback);
+    });
   });
 
-  current.update();
+  // current.update();
 };
 
 const callBuildPage = (): void => {

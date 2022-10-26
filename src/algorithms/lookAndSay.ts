@@ -48,12 +48,17 @@ export const lookAndSayPage: Page = {
     ["h3", {}, "Output"],
     ["div", { id: "output" }],
   ],
-  inputs: ["seed", "terms"],
-  update: () => {
-    const seed = <HTMLInputElement>document.getElementById("seed");
-    const terms = <HTMLInputElement>document.getElementById("terms");
-    const result = getLookAndSaySequence(seed.value, parseInt(terms.value));
+  listeners: [
+    {
+      type: "input",
+      ids: ["seed", "terms"],
+      callback: () => {
+        const seed = <HTMLInputElement>document.getElementById("seed");
+        const terms = <HTMLInputElement>document.getElementById("terms");
+        const result = getLookAndSaySequence(seed.value, parseInt(terms.value));
 
-    document.getElementById("output").textContent = result.join(", ");
-  },
+        document.getElementById("output").textContent = result.join(", ");
+      },
+    },
+  ],
 };

@@ -43,12 +43,17 @@ export const balancedParenthesesPage: Page = {
     ["h3", {}, "Are the Parentheses Balanced?"],
     ["div", { id: "output" }],
   ],
-  inputs: ["input"],
-  update: () => {
-    const input = <HTMLTextAreaElement>document.getElementById("input");
-    const output = document.getElementById("output");
-    const isBalanced = areParenthesesBalanced(input.value);
+  listeners: [
+    {
+      type: "input",
+      ids: ["input"],
+      callback: () => {
+        const input = <HTMLTextAreaElement>document.getElementById("input");
+        const output = document.getElementById("output");
+        const isBalanced = areParenthesesBalanced(input.value);
 
-    output.innerText = isBalanced ? "Yes" : "No";
-  },
+        output.innerText = isBalanced ? "Yes" : "No";
+      },
+    },
+  ],
 };

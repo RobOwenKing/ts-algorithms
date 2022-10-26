@@ -14,13 +14,19 @@ export interface Attributes {
   for?: string;
 }
 
+/* type, options, innerText?, children? */
 export type ElementParams = [string, Attributes, string?, ElementParams?][];
+
+interface Listener {
+  type: string;
+  ids: string[];
+  callback: (event?: Event) => void;
+}
 
 export interface Page {
   name: string;
   markup: ElementParams;
-  inputs: string[];
-  update: () => void;
+  listeners: Listener[];
 }
 
 export type Data = { [index: string]: Page };

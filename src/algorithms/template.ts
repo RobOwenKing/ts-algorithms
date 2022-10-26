@@ -8,6 +8,11 @@ export const templatePage: Page = {
     ["h3", {}, "Output:"],
     ["div", { id: "output" }],
   ],
-  inputs: [],
-  update: () => {},
+  listeners: [
+    {
+      type: "input",
+      ids: [],
+      callback: () => {},
+    },
+  ],
 };
