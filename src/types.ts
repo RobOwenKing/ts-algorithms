@@ -19,7 +19,7 @@ export type ElementParams = [string, Attributes, string?, ElementParams?][];
 
 interface Listener {
   type: string;
-  inputs: string[];
+  ids: string[];
   callback: () => void;
 }
 

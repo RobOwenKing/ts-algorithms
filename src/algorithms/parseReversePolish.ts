@@ -77,7 +77,7 @@ export const parseReversePolishPage: Page = {
   listeners: [
     {
       type: "input",
-      inputs: ["input"],
+      ids: ["input"],
       callback: handleEquationInput,
     },
   ],

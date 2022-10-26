@@ -37,8 +37,8 @@ const buildPage = (page: string, app: HTMLElement): void => {
     app.insertAdjacentElement("beforeend", buildElement(...e));
   });
   current.listeners.forEach((lstnr) => {
-    lstnr.inputs.forEach((i) => {
-      document.getElementById(i).addEventListener(lstnr.type, lstnr.callback);
+    lstnr.ids.forEach((id) => {
+      document.getElementById(id).addEventListener(lstnr.type, lstnr.callback);
     });
   });
 
