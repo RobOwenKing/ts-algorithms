@@ -40,6 +40,19 @@ export const parseReversePolish = (equation: string): string | number => {
   return stack.length() == 1 && !invalid ? stack.pop() : "Invalid input";
 };
 
+const handleEquationInput = (): void => {
+  const input = <HTMLInputElement>document.getElementById("input");
+  const output = document.getElementById("output");
+
+  const answer = parseReversePolish(input.value);
+  if (answer === "Invalid input") {
+    output.dataset.valid = "false";
+  } else {
+    output.textContent = `= ${answer}`;
+    output.dataset.valid = "true";
+  }
+};
+
 export const parseReversePolishPage: Page = {
   name: "Reverse Polish Notation",
   markup: [
@@ -61,17 +74,11 @@ export const parseReversePolishPage: Page = {
     ["h3", {}, "Output:"],
     ["div", { id: "output", class: "output" }],
   ],
-  inputs: ["input"],
-  update: () => {
-    const input = <HTMLInputElement>document.getElementById("input");
-    const output = document.getElementById("output");
-
-    const answer = parseReversePolish(input.value);
-    if (answer === "Invalid input") {
-      output.dataset.valid = "false";
-    } else {
-      output.textContent = `= ${answer}`;
-      output.dataset.valid = "true";
-    }
-  },
+  listeners: [
+    {
+      type: "input",
+      inputs: ["input"],
+      callback: handleEquationInput,
+    },
+  ],
 };
