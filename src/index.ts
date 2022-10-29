@@ -47,14 +47,15 @@ const buildPage = (page: string, app: HTMLElement): void => {
 
 const callBuildPage = (): void => {
   const app = document.getElementById("app");
+  const params = new URL(document.location.toString()).searchParams;
 
-  if (location.hash === "") {
+  if (!params.has("a")) {
     app.innerHTML = "";
     document.getElementById("algorithms").dataset.size = "large";
     return;
   }
 
-  const page = kebabToCamel(location.hash).slice(1); // Has # at start
+  const page = kebabToCamel(params.get("a")); // Has # at start
   buildPage(page, app);
   document.getElementById("algorithms").dataset.size = "small";
 };
@@ -72,7 +73,12 @@ const buildAlgorithmsSelect = (element: HTMLSelectElement): void => {
 
 const activateAlgorithmsSelect = (element: HTMLSelectElement): void => {
   element.addEventListener("change", () => {
-    location.hash = camelToKebab(element.value);
+    // Update URL and history
+    const url = new URL(window.location.toString());
+    url.searchParams.set("a", camelToKebab(element.value));
+    window.history.pushState(null, "", url.toString());
+    // Change page to match new URL
+    callBuildPage();
   });
 };
 
@@ -84,7 +90,8 @@ const app = (): void => {
   activateAlgorithmsSelect(algorithmsSelect);
   callBuildPage();
 
-  window.addEventListener("hashchange", callBuildPage);
+  // Change page when browser buttons move history forwards/backwards
+  window.addEventListener("popstate", callBuildPage);
 };
 
 app();
