@@ -73,9 +73,12 @@ const buildAlgorithmsSelect = (element: HTMLSelectElement): void => {
 
 const activateAlgorithmsSelect = (element: HTMLSelectElement): void => {
   element.addEventListener("change", () => {
+    // Update URL and history
     const url = new URL(window.location.toString());
     url.searchParams.set("a", camelToKebab(element.value));
     window.history.pushState(null, "", url.toString());
+    // Change page to match new URL
+    callBuildPage();
   });
 };
 
@@ -87,7 +90,8 @@ const app = (): void => {
   activateAlgorithmsSelect(algorithmsSelect);
   callBuildPage();
 
-  window.addEventListener("hashchange", callBuildPage);
+  // Change page when browser buttons move history forwards/backwards
+  window.addEventListener("popstate", callBuildPage);
 };
 
 app();
