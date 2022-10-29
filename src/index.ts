@@ -47,14 +47,15 @@ const buildPage = (page: string, app: HTMLElement): void => {
 
 const callBuildPage = (): void => {
   const app = document.getElementById("app");
+  const params = new URL(document.location.toString()).searchParams;
 
-  if (location.hash === "") {
+  if (!params.has("a")) {
     app.innerHTML = "";
     document.getElementById("algorithms").dataset.size = "large";
     return;
   }
 
-  const page = kebabToCamel(location.hash).slice(1); // Has # at start
+  const page = kebabToCamel(params.get("a")); // Has # at start
   buildPage(page, app);
   document.getElementById("algorithms").dataset.size = "small";
 };
