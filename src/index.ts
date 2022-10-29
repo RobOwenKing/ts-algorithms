@@ -72,7 +72,9 @@ const buildAlgorithmsSelect = (element: HTMLSelectElement): void => {
 
 const activateAlgorithmsSelect = (element: HTMLSelectElement): void => {
   element.addEventListener("change", () => {
-    location.hash = camelToKebab(element.value);
+    const url = new URL(window.location.toString());
+    url.searchParams.set("a", camelToKebab(element.value));
+    window.history.pushState(null, "", url.toString());
   });
 };
 
